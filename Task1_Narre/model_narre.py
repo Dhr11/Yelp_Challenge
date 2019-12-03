@@ -62,7 +62,7 @@ for word, i in item_word_index.items():
         item_embedding_matrix[i] = embedding_vector
 """
 
-def get_model(user_embedding_matrix,item_embedding_matrix,user_word_index,item_word_index,USER_SEQUENCE_LENGTH,ITEM_SEQUENCE_LENGTH,user_review_num,item_review_num,conv_filters=128,attention_units=32,embedding_id=32,filter_sizes = [3,4,5],EMBEDDING_DIM=100):
+def get_model(user_embedding_matrix,total_item,total_users,item_embedding_matrix,user_word_index,item_word_index,USER_SEQUENCE_LENGTH,ITEM_SEQUENCE_LENGTH,user_review_num,item_review_num,conv_filters=128,attention_units=32,embedding_id=32,filter_sizes = [3,4,5],EMBEDDING_DIM=100):
     user_embedding_layer = Embedding(len(user_word_index) + 1,
                             EMBEDDING_DIM,weights=[user_embedding_matrix],
                             input_length=USER_SEQUENCE_LENGTH,trainable=True)
@@ -111,7 +111,7 @@ def get_model(user_embedding_matrix,item_embedding_matrix,user_word_index,item_w
     print(user_flat.shape)
     #user_drop = Dropout(1.0)(user_flat)
 
-    total_item = 1000000
+    #total_item = 1000000
     u_iid = Input(shape=(user_review_num), dtype='int32')
     item_id_embedding = Embedding(total_item + 2,
                                 embedding_id,
@@ -141,7 +141,7 @@ def get_model(user_embedding_matrix,item_embedding_matrix,user_word_index,item_w
 
     item_flat = Reshape((item_review_num,conv_filters*len(filter_sizes)))(item_conv_joined)
     #item_drop = Dropout(1.0)(item_flat)
-    total_users = 200000
+    #total_users = 200000
     i_uid = Input(shape=(item_review_num,), dtype='int32')
     user_id_embedding = Embedding(total_users + 2,
                                 embedding_id,
