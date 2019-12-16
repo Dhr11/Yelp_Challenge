@@ -1,3 +1,3 @@
-#Recommendation Using Collaborative Filtering
+Recommendation Using Collaborative Filtering
 
 The users have not rated many businesses and hence the data is very sparse.  For sparse data modelbased  collaborative  filtering  is  usually  preferred  over  memory  based  collaborative  filtering.   Thereason being that memory based approach finds similar users based on cosine similarity which willnot perform well because of the data not being well populated.  On the other hand, model basedapproach specifically uses machine learning methods to find user ratings of unrated businesses.  Inmodel based approaches we have neural networks, SVD and matrix factorization.  We have chosennon-negative matrix factorization to fill the user-business matrix.
