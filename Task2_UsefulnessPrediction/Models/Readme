@@ -1,5 +1,12 @@
+  
   We have used 3 methods:
   
   1. Machine Learning techniques (KNN, Random Forest)
   2. Using Text Data to predict usefulness
   3. Using Text Data, Category Vector and Extra Features Vector to predict usefulness
+
+  We have used the website below to obtain the glove and crawl files needed for generating the embedding matrix for text data:
+  
+  https://www.kaggle.com/iezepov/gensim-embeddings-dataset
+  
+  
